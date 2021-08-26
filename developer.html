@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html></html>
+    <head>
+        <title>Decision Maker</title>
+        
+
+        <style>
+            #container{
+                height: 100%;
+                width: 100%;
+                border: 0px solid black;
+                
+            }
+            body{
+                background: #d4e6ff;
+            }
+
+            .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 60px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 90px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+.gradient-border {
+  --borderWidth: 20px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+            .contain-word{
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 100px;
+                margin: 0 auto;
+                max-width: 800px;
+                padding: 12px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+                text-align: center;
+                color:#fff;
+                font-family:'Courier New', Courier, monospace;
+                
+                
+
+            }
+
+            .box{
+                
+                margin: auto;
+                margin-top: 100px;
+                height: 600px;
+                width: 90%;
+                position: relative;
+                border: 50px  ;
+                background-color: #86592d;
+                
+
+
+
+
+                /*
+                
+                height: 500px;
+                width: 90%;
+                border: 0px solid black;
+                text-align: center;
+                line-height: 500px;
+                background-color: #86592d;
+                margin: auto;
+                margin-top: 150px;
+                font-size:30px;
+                font-family:'Courier New', Courier, monospace;
+                color: white;*/
+            }
+            .butts {
+
+                margin-top: 100px;
+                display: flex;
+                justify-content: center;
+                
+
+            }
+
+            .button2 {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #da4848;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+            .button2:hover {background-color: #da4848}
+
+            .button2:active {
+                        background-color: #da4848;
+                        box-shadow: 0 5px #666;
+                        transform: translateY(4px);
+            }
+
+            .button {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+h1{
+  font-family:'Courier New', Courier, monospace;
+  
+}
+div a{
+  margin: auto;
+}
+         </style>
+    </head>
+    <body >
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index3.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="developer.html">Developer</a>
+    
+      </div>
+      
+      
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="icon3.png" alt="icon" style="height: 80px; width: 80px;"> </span>
+    <div id="container">
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <img src="romar.jpg" alt="romar" style="height: 500px;width: 500px;box-shadow:10px 10px 70px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+        </div>
+        <div>
+            <fieldset style="width: 90%; margin: auto;">
+
+                <legend><h1>DEVELOPER INFORMATION</h1></legend>
+                <h1>Name : <i>Romar P. Castro</i></h1>
+                <h1>Age: <i>21</i></h1>
+                <h1>Vital Statistics: <i>Study First</i></h1>
+                <h1>Course: <i>Bachelor of Science in Information Technology</i></h1>
+                <h1>University: <i>Pangasinan State University (San Carlos Campus)</i></h2>
+                <h1>Marital Status: <i>Single</i></h1>
+                <h1>Lovelife: <i>I dont know either kung kailan ako mag ma man-up kay Crush eh. Isaiah 60:22 "When The Time Is Right I,The Lord Will Make It Happen" in God's Perfect time nalang and I promise I'll reach the moon.</i></h1>
+                <h1>Crush: <i>?????</i></h1>
+                <h1>Skills: <br><i>Can cook <br>Can eat<br>Can Design <br>Problem Solving <br>Fundamentals of Programming <br>Can play some Instruments(the basics)</i></h1>
+                <h1>Quote: <i>“ Code is like humor. When you have to explain it, it’s bad.” -Cory House</i> </h1><br>
+                <div style="display: flex;align-items: center;justify-content: center; margin: auto;">
+                   <a href="http://facebook.com/profile.php?=73322363"><img src="fb.png" alt="" style="height:100px; width:100px;" ></a>
+                  <a href="http://romarportfolio.rf.gd/?i=1"><img src="inssss.png" alt="" style="height:100px; width:100px;" ></a>
+                  <a href="https://www.sololearn.com/profile/21533085"><img src="solo.png" alt="" style="height:100px; width:100px;" ></a>
+                </div>
+                
+
+            </fieldset>
+        </div>
+        
+
+        
+    </div>
+
+
+        
+
+    </div>
+
+
+
+</body>
+
+<script>
+ function openNav() {
+  document.getElementById("mySidenav").style.width = "500px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+</script>
+
+
+</html>

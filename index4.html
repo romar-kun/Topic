@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html></html>
+    <head>
+        <title>Decision Maker</title>
+        
+
+        <style>
+            #container{
+                height: 100%;
+                width: 100%;
+                border: 0px solid black;
+                
+            }
+            body{
+                background: #d4e6ff;
+            }
+
+
+            .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #222222;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: 1;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 60px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 90px;
+  margin-left: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+            #box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+.gradient-border {
+  --borderWidth: 20px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+            .contain-word{
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 40px;
+                margin: 0 auto;
+                max-width: 800px;
+                padding: 12px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+                text-align: center;
+                color:#fff;
+                font-family:'Courier New', Courier, monospace;
+                
+                
+
+            }
+
+            .box{
+                
+                margin: auto;
+                margin-top: 100px;
+                height: 600px;
+                width: 90%;
+                position: relative;
+                border: 50px  ;
+                background-color: #86592d;
+                
+
+
+
+
+                /*
+                
+                height: 500px;
+                width: 90%;
+                border: 0px solid black;
+                text-align: center;
+                line-height: 500px;
+                background-color: #86592d;
+                margin: auto;
+                margin-top: 150px;
+                font-size:30px;
+                font-family:'Courier New', Courier, monospace;
+                color: white;*/
+            }
+            .butts {
+
+                margin-top: 100px;
+                display: flex;
+                justify-content: center;
+                
+
+            }
+
+            .button2 {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #da4848;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+            .button2:hover {background-color: #da4848}
+
+            .button2:active {
+                        background-color: #da4848;
+                        box-shadow: 0 5px #666;
+                        transform: translateY(4px);
+            }
+
+            .button {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+         </style>
+    </head>
+    <body >
+        
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index3.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="developer.html">Developer</a>
+    
+  </div>
+  
+  
+  <span style="font-size:30px;cursor:pointer" onclick="openNav() "><img src="icon3.png" alt="" style="height: 80px; width: 80px;"> </span>
+    <div id="container">
+        <div  class="box gradient-border">
+            
+            <div id="out" class="contain-word" >
+
+            </div>
+        </div>
+        
+        <br>
+
+        <div class="butts">
+            <button onclick="stop();" class="button2">STOP</button>
+            
+            
+
+        </div>
+        <div class="butts">
+            <button onclick="start()" class="button button1">START</button>
+        </div>
+
+        
+    </div>
+
+
+        
+
+    </div>
+
+
+
+</body>
+
+<script>
+
+function start() {
+      
+      location.reload();
+}
+function change() {
+    document.getElementById("out").innerHTML = random_place_array[index++];
+    index %= random_place_array.length;
+}
+  
+function stop() {
+    clearInterval(intervalID);
+}
+
+var random_place_array = ['Who is your celebrity crush?', 
+'What\'s your biggest turn-off?','What was your first impression of me?',
+'Do you like huge parties or would you rather spend time in a small group/alone?',
+'What\'s something weird that you find attractive?',
+'What\'s the best gift you\'ve ever received and who was it from?',
+'What\'s one rule to live by?',
+'What\'s your biggest fear?',
+'Who are you closest to in your family?',
+'Do you want to be in a relationship right now?',
+'When was your last relationship?',
+'Why did it end?',
+'Do you think you\'re over your ex?',
+'What\'s your love language?',
+'What do you do to relax?',
+'What\'s a typical Saturday look like for you?',
+'When it comes to priorities like work, life, family, and friends, how does each rank compared to the others?',
+'How would you spend an ideal fake sick day?',
+'Are you a dog or cat person?',
+'Whats your most embarrassing moment?',
+' Do you think double texting is a big deal?',
+'What\'s the most embarrassing thing you\'ve ever done to get a crush\'s attention?',
+'When did you have your first kiss?',
+' Do you believe in astrology? Does your sign fit you?',
+'What\'s the most spontaneous thing you\'ve ever done?',
+'Have you ever cheated on your Significant other?',
+'Have you ever been cheated on?',
+'What\'s your biggest regret?',
+'What\'s your dream date night?',
+' How many Significant others have you had?',
+'Are you looking for a relationship?',
+'If your life was a movie, what would it be called?',
+'What\'s the last concert you went to?',
+'What do you wish you were really good at?',
+'What attracts you to people?',
+'What turns you on?',
+'What is the weirdest dream you\'ve ever had?',
+'What is on your bucket list?',
+'Are you more of a morning or night person?',
+'What is your go-to karaoke song?',
+'If you could move anywhere in the world, where would you go?',
+'What was one time you really stepped out of your comfort zone?',
+'What is the biggest lesson you\'ve learned?',
+'What is the one thing you can\'t live without?',
+'What is your biggest guilty pleasure?',
+'If you were a superhero, what kind of secret identity would you have?',
+'What is the most romantic thing you have ever done?',
+'Have you ever been in love?',
+'What’s your idea of the perfect date?',
+'Do you believe in love at first sight? How about in soul mates?',
+'If you had a chance to be anyone for a whole day, who would you be and why?',
+'What’s the most critical thing you want to achieve in your life?',
+'Can you sum up your life’s philosophy in one sentence?',
+'If you could live anywhere in the world, where would you choose to live?',
+'If a genie grants you three wishes, what would they be?',
+'If you could take one day off to do anything you want, how would you spend the day?',
+'Which town/city did you grow up in?',
+'Do you keep in touch with your childhood friends?',
+'What’s your favorite childhood memory?',
+'If you can go back to do one thing differently, what would that be?',
+'Which part of your past would you like to relive?',
+'Do you prefer cats or dogs?',
+'Would you rather become rich or famous?',
+'Do you think it’s easier to ask for permission or forgiveness?',
+'If you won the lottery, what’s the first thing you’d buy?',
+'What do you think the future of the world is going to be like?',
+'Which came first, the chicken or the egg?',
+'When was the last time when you honestly felt appreciated or loved?',
+'What parts of your life have improved in the previous 5 or 10 years?',
+'What parts of your life have worsened in the last 5 or 10 years?',
+'In your opinion, what’s the primary cause of loneliness?',
+'How to have a healthy relationship?',
+'What type of instrument reflects your personality?',
+'Who is your number one fan/supporter?',
+'How would you describe your favorite color without the use of color words?',
+'Have the roles of your family members changed since you were still a child?',
+'Was there ever a time in your life when you felt like faith was a real thing?',
+'Have you ever been in other countries?',
+'Do you feel more comfortable or in the city?',
+'In your opinion, what makes humanity successful?',
+'If you could travel anywhere in a blink of an eye, where would you go?',
+'What is the most beautiful thing in the world?',
+'What is the ugliest thing in the world?',
+'Do you work out a lot?',
+'What do you look for in a guy/girl?',
+'How can someone as high as you be single?',
+'How do you stay so attractive?',
+'How are you so good at your job?',
+'What would your ideal date be?',
+'Where did you learn to be so funny?',
+'What was the first thought that popped into your mind when you met me?',
+'What’s the best date you’ve ever been on?',
+'Who is your celebrity crush?',
+'Should guys always make the first move or should girls do it too?',
+'Which would you prefer that people see you as smart or sexy?',
+'Are you looking for a relationship anytime soon?',
+'What’s the one thing that makes you happy?',
+'Do you wear anything to bed?',
+'Would you ever spend a day at a nude beach?',
+'What pet names appeal to you?',
+'What’s your biggest turn on when you’re on a date with someone?',
+'Can you describe yourself in 3 words? ',
+'Are you a boob or a butt guy?',
+'What’s your favorite body part/feature on a girl/guy?',
+'Do you think tattoos are sexy or not?',
+'Are your parents as attractive as you?',
+'Do you prefer cuddling or making out?',
+'If you could have any job you wanted, what would you choose to be?',
+'What makes you feel the most nervous?',
+'Would you rather have x-ray vision or have the power of invisibility?',
+'If you could change anything in your life, what would you change?',
+'What part of your house turns you on the most?',
+'Would you like to go out on a date with me?',
+'What type of outfit would you like to see me wearing?',
+'What would you do if you accidentally saw me naked?',
+'Do you think you’d enjoy getting a massage from me?',
+'Which of my body parts appeals to you the most?',
+'Tell me about you.',
+'Working on anything exciting lately?',
+'What’s your story?',
+'What personal passion project are you working on right now?',
+'What was the highlight of your day today?',
+'What was the highlight of your week?',
+'What was the high-point and low-point of your day so far?',
+'Can you recommend any unique desserts here?',
+'If you had to pick any character in a book, movie, or TV show who is most similar to you, who would you choose? Why?',
+'When you were growing up, what was your dream job? Is any part of that still true?',
+'What’s your biggest fear?',
+'Who is your role model?',
+'If you had to pick one–skydiving, bungee jumping, or scuba diving–which would you do?',
+'What’s the most important thing I should know about you? ',
+'When you were a kid, what did you think your life would look like now?',
+'Which of your family members are you most like? ',
+'Do you think there are aliens on other planets?',
+'If you were an animal, what animal would you be? Why?',
+'When you’re a grown up, what type of house will you live in?',
+'If you were an animal, what animal would you be? Why monkey?',
+'Who would win in a fight, a robot or a dinosaur? ',
+'What was your worst fashion disaster?',
+'What’s the most embarrassing thing you did at school / when you were a kid?',
+'If you had a reality TV show about your life, what would your theme song be?',
+'What’s your plan if there was a zombie apocalypse?',
+'How do you usually celebrate your birthday?',
+'What was the best (or worst) birthday gift you ever received?',
+'What Is The Most Beautiful Song You Have Heard?',
+'What Song Gets You Pumped Every Time It Comes On?',
+'What\'s Your Favorite Movie Or Show That Most People Haven\'t Heard About?',
+'What Song Do You Listen To The Most?',
+'If You Were Famous, What Industry Would You Like To Be Famous In?',
+'If You Were Stranded On An Island For Eternity, Name One Book Or CD You Would Need To Have In Your Possession.',
+'What Is Something You Got Away With As A Child That Your Family Still Doesn’t Know About?',
+'What Are The Most Common Reasons For Friendships To Fall Apart?',
+'What Is The Best Way To Meet New Friends?',
+'What Is The Most Annoying Type Of Friend?',
+'What Separates True Friends From Acquaintances?',
+'Do You Have Any Family Traditions? If So, What?',
+'What Do You Want To Be When You Grow Up?',
+'What\'s A Hobby You\'ve Always Wanted To Try?',
+'If You Could Eliminate One Thing From Your Daily Schedule, What Would It Be And Why?',
+'If You Had This Week To Do Over Again, What Would You Do Differently?',
+'If You Could Go Anywhere In The Universe, Where Would You Go?',
+'What\'s The Coolest Fact About The Universe You Know?',
+'What Are Some Fun Things You Could Do In Zero-Gravity?',
+'Do You Still Consider Pluto To Be A Planet?',
+'Would You Ever Join A Mission To Colonize Another Planet If It Meant Never Returning To Earth?',
+'If You Could Ask God A Question What Would It Be?',
+'Hotel Or Tent?',
+'When You Think Of “Home” What Do You Think Of?',
+'If You Could Go On A Trip Anywhere In The World With Anyone, Where Would You Go And Who Would You Take?',
+'For Your Birthday, Would You Rather Go Somewhere Or Get Something?',
+'What Gift Have You Received That You Will Always Treasure?',
+'What One Possession Do You Cherish The Most?',
+'What Is The One Thing You Would Really Like To Own?',
+'How Often Do You Push Yourself Outside Of Your Comfort Zone?',
+'What Is The Craziest Thing You\'ve Ever Done?',
+'What Is Your Most Awkward Moment From Middle School Or High School?',
+'If You Could Add Any Word To The Dictionary, What Word Would It Be, And What Would It Mean?',
+'What Is The Most Unusual Thing In Your Wallet, Pocket, Or Purse Right At This Moment?',
+'If Your Best Friend Wrote A Book About You, What Would The Title Be? What About Your Worst Enemy?',
+'If You Had To Be Named After A City, State, Or Country (Etc), Which Would You Want It To Be?',
+'What Is A Challenge You Would Never Want To Face?',
+'If You Could Do So, How Would You Change The World?',
+'What Real-Life Situation Where You Stood Up For Someone/Something?',
+'When And Where Do You Feel Most Like Your Real Self?',
+'Do You Say ‘Yes’ Too Often When You Really Want To Say ‘No’?',
+'Why Is It Sometimes Hard To Forgive Others?',
+'What Are Three Things For Which You Are Grateful?',
+'How Does The Absence Of Beauty Affect People?',
+'Is Beauty Only In The Eye Of The Beholder, Or Can We Say Some Things Are Universally Beautiful?',
+'What Makes A Person Beautiful To You?',
+'What Makes A Piece Of Art Beautiful To You?',
+'What’s The Best Compliment You’ve Ever Gotten?',
+'If You Had The Attention Of The World For Just 10 Seconds, What Would You Say?',
+'What Controversial Issue – Social Or Political – Do You Feel Strongly About?',
+'What Do You Think Is The Most Significant Event In The History Of The Human Race?',
+'Do You Pray For Humanity Or Celebrate It?',
+'What Issue Do Most People Think Is Black And White?',
+'What Do You Think The World Will Be Like In Twenty-Five Years?',
+'If You Could Wish One Thing To Come True This Year, What Would It Be?',
+'What Would You Like To Be Known For?',
+'What Will You Be Like When You Are 75?',
+'What Do You Hope Your Life Will Be Like 10 Years From Now?',
+'What Drives You To Do What You Do?',
+'What Irrational Fear Do You Have?',
+'What Part Of The Day Do You Dread?',
+'What Are Your Most Common Negative Thoughts?',
+'If You Only Had One Month To Live, How Would You Spend Your Time? With Whom?',
+'Who In Your Family Are You Most Like?',
+'Do You Make Friends Easily Or Do You Find It Difficult To Make New Friends?',
+'Who Is Your Oldest Friend? How Did You Meet Them?',
+'What Are Some Of Your Ideas For How To Keep A Relationship Strong Over Time?',
+'Do You Have Anyone You Go For Advice?',
+'What Two Things Do You Consider Yourself To Be Very Good At?',
+'What Are Some Successes You’ve Had In Your Personal Life? Your Professional Life?',
+'What Is The Next Big Success You Are Working Towards?',
+'What Is Your 5 Year Plan?',
+'What Is The Most Recent Success You’ve Had?',
+'What’s One Of Your Favorite Memories?',
+'Who Was Your Enemy Or The Bully When You Were Young?',
+'What Is One Of Your Earliest Memories?',
+'What Is Something You Did As A Child Your Parents Don\'t Know About?',
+'Would You Rather Live For A Week In The Past Or The Future?',
+'What’s One Choice You Really Regret?',
+'What Can I Do To Show That I Appreciate You?',
+'In What Situation(S) Do You Become Discouraged?',
+'What Can I Do To Help You When You’re Upset Or Stressed?',
+'How Can You Tell Someone You Love Them Without Using Words?',
+'Is There Anything You Have Always Wanted To Ask Me But Didn’t?',
+'What Is The Craziest, Most Outrageous Thing You Want To Achieve?',
+'Have Your Parents Influenced What Goals You Have?',
+'What Is A Fashion Trend You Are Really Glad Went Away?',
+'Do You Play Any Musical Instruments?',
+'How Do You Get Along With The People You Work With?',
+'What Is Your Guilty Pleasure?',
+'What Word Or Saying From The Past Do You Think Should Come Back?',
+'What Do You Bring With You Everywhere You Go?',
+'What Is The Most Annoying Habit Someone Can Have?',
+'If You Had Intro Music, What Song Would It Be? Why?',
+'What Was The Best Invention Of The Last 50 Years?',
+'Where Is The Most Awe Inspiring Place You Have Been?',
+'What Book Has Influenced You The Most?',
+'Can You Describe Your Life With A Six Word Sentence?',
+'Is There Such A Thing As A Soul?',
+'Is Happiness An End Goal Or Simply A By-Product Of Other Things?',
+'Could We Ever Accurately Predict The Future? Or Does The “Spooky Action” Of The Quantum World, As Einstein Put It, Mean Things Are Inherently Unpredictable?',
+'Is Love Dependence On Another?',
+'Do You Speak Any Other Languages?',
+'What Local Events Are You Looking Forward To?',
+'Is There Life After Death?',
+'Do You Like Spending Time Alone Or With Friends?',
+'Do You Think There Ever Will Be A Third World War?',
+'Does Anyone Believe In Ghosts?',
+'What Smell Brings Back Great Memories?',
+'What Is The Best Way To Stay Motivated And Complete Goals?',
+'Do You Love Working There Or Are You Doing It For The Money?',
+'Where Is The Best Place To Take A Date?',
+'Do You Enjoy Cooking?',
+'What Is Your Favorite Holiday Destination?',
+'What Are You Best At?',
+'Are You Afraid Of A Particular Thing/Person?',
+'Which Is Your Favorite Song/Movie?',
+'How Would You Define Self-Confidence?',
+'How Would You Like To Be Remembered?',
+'How Close Are You To Your Family?',
+'Do You Believe In Love At First Sight?',
+'What Would Your Parents Be Surprised To Learn About You?',
+'What Superpower Would You Have For One Day?',
+'What Was Your Favorite TV Show As A Kid?',
+'What’s The First Thing You’d Do If You Were The Opposite Sex For One Day?',
+'What Kind Of Music Are You Into?',
+'What’s Your Favorite Movie?',
+'Would You Rather Be Twice As Smart Or Twice As Happy?',
+'Apologize Or Ask Permission?',
+'hat’s Your Most Listened To Song?',
+'What Celebrity Would You Trade Lives With?',
+'What Fictional Character Reminds You Most Of Yourself?',
+'If You Knew You Would Die In One Week, What Would You Do?',
+'Where Do You See Yourself Five Years Down The Line?',
+'Have You Ever Written A Love Letter',
+'What Is The Wildest Thing You\'ve Ever Done?',
+'If You Could Hop On A Plane Right Now, Where Would You Go?',
+'Where Is ‘Home’?',
+'Did You Have Any Nicknames Growing Up? Now?',
+'What Were You Like As A Child?',
+'What\'s The Worst Pickup Line You\'ve Ever Heard/Dished Out?',
+'What Do You Like To Do When You’re Not Working?',
+'If You Could Only Eat One Thing For The Rest Of Your Life, What Would It Be?',
+'Do You Have A Type?',
+'Are You More Of A TV Person, Or Do You Prefer Movies?',
+'What is a language you love to listen to even if you don’t speak or understand it?',
+'Which scent do you find the most soothing? ',
+'Oceans or mountains? Why? ',
+'Describe the most captivating painting or artwork you’ve ever seen.',
+'Do you remember the first novel you ever read? If so, what was it?',
+'What is your favorite thing about your personality?',
+'If you could have a fictional superhero for a best friend, who would it be?',
+'What color would you choose to describe yourself?',
+'What is something you have accomplished as an adult that your younger self would be proud of?',
+'Is there a place in the world that you feel most represents who you are?',
+'Where is one place you’d love to travel to again?',
+'If your pet could talk, what would their voice sound like? What would they say about you?',
+'What does your name mean?',
+'What tasks make you feel like your best self?',
+'What tasks make you feel like your best self?',
+'Where do you feel most centered and happy?',
+'What’s your favorite comfort food?',
+'What do you wear when you’re feeling your very best, and why?',
+'What is the best meal you’ve ever had, and what’s the best meal you’ve ever cooked for yourself?',
+'What do you love most about your home?',
+'What gives you goosebumps?',
+'Do you have any tattoos?',
+'Scuba diving or skydiving?',
+'What are you most grateful for in this season of life?',
+'Do you give back or volunteer with any organizations?',
+'What’s your love language?',
+'What do you look for and need in your friendships?',
+'How do you feel that you best offer love and support to your friends?',
+'Tell me about your childhood best friend.',
+'When do you feel most authentically yourself?',
+'What\'s one form of self-expression you\'ve been too hesitant to explore?',
+'What\'s one habit you want to get rid of and one habit you want to keep?',
+'If you were to perform a duet with a famous musician, who would it be and why?',
+'Who do you most admire, and how has that impacted the way you live your life?',
+'What’s one thing you’d tell yourself at my age? What’s one thing your younger self would tell you?',
+'What do you wish you’d known before having kids? ',
+'What was the first big purchase you made as an adult?',
+'How did you know when you fell in love?',
+'Have you kept any memorabilia from your childhood?',
+'What do you miss most about being a child? A teenager? My age?',
+'What about the current world would be most surprising to your younger self?',
+'Who did you vote for in past elections? Why?',
+'What’s one of your favorite memories about your parents? ',
+'What do you love most about school?',
+'Who are your best friends?',
+'What is your favorite season?',
+'What does “alone time” look like for you?',
+'What do you wish people better understood about you?',
+'What lessons from your childhood have most impacted your worldview?',
+'What do you love most about our relationship? What do you wish to work on?',
+'What small joys bring light to your day?',
+'How can we better practice sustainability as a couple?',
+'What’s a favorite memory you have of us together?',
+'Do you have a morning routine?',
+'What was your favorite subject in school? Favorite teacher?',
+'Which characteristics do you think you inherited from your parents?',
+'If you could return to school, what would you study?',
+'What Netflix show or movie are you marathon-watching?',
+'What are you currently reading?',
+'What food reminds you most of home?',
+'What do you love most about yourself? ',
+'How do you unwind after work?',
+'What was your very first job?',
+'Anong ginagawa mo kapag wala kang ginagawa?',
+'Ano ba talaga si j0libee? bubuyog 0 langgam?',
+'Anong tagalog ng toothpaste?',
+'Mahal na mahal kita',
+'Nickname',
+'Zodiac Sign',
+'Childhood crush',
+'Motto in Life',
+'What is Love?',
+'First Kiss',
+'Who have a life easier? Men or Women?',
+'Swimwear or evening gown',
+'high tide or low tide?',
+'True love or World peace?',
+'If you are a beauty queen what is your advocacy?',
+'In boxing who will gonna win? Boy abunda or Wally?',
+'When is your birthday?',
+'520 search it on google',
+'Someone who love you or Someone you love?',
+'Long hair or Short hair',
+'Your ideal type of guy/girl?',
+'Girlfriend na taga Mars o taga Earth?',
+'Your hours of sleep',
+'What was the most cringe part in your life that you did?',
+'Ilan ang crush mo for now?',
+'What age do you want to marry?',
+'What is your dream car?',
+'What planet do you want to live?',
+'Dilawan O DDS?',
+'Bakit may butas ang Doughnut sa gitna?',
+'Ilang hayop and sinakay ni moises sa arko?',
+'If your ex wants a second chance, would you accept it?',
+'What do you think about the Theory of Evolution?',
+'Do you like Math?',
+'Volleyball or Basketball',
+'Do you read Bible?',
+'Do you like cooking?',
+'How do you usually find good restaurants?',
+'Do you like reading books?',
+'What types of books do you like?',
+'What’s the last book you read?',
+'What’s your favorite book?',
+'What book is overrated?',
+'Are there any books you would really recommend I read?',
+'Where have you been on vacation?',
+'What place do I really need to see?',
+'Where do you wish you could go?',
+'Do you have any hobbies?',
+'What common misconceptions do people have about your hobby?',
+'What hobbies did you have when you were younger?',
+'What kind of sense of humor do you have?',
+'Are there any comedians you really like?',
+'What are some of your favorite comedy movies?',
+'What subjects were hardest for you in school?',
+'What kinds of things are you interested in learning more about?',
+'What’s your favorite app on your phone?',
+'What app do you spend the most time on?',
+'What app would you suggest everyone get?',
+'What app do you wish you didn’t have to use?',
+'What is the longest you’ve been offline?(hour)',
+'What’s on the internet that you couldn’t live without?',
+'What game on your phone or tablet are you really into now?',
+'What was the best mobile game you’ve played?',
+'Do you like board or card games?',
+'How about console or PC games?',
+'What phone do you have?',
+'How many phones have you lost or broken?',
+'What social media platform do you spend the most time on?',
+'What kinds of people do you follow?',
+'Who is the most interesting person you follow?',
+'What are some truly bizarre websites you’ve been to?',
+'What is the most useful site you’ve used?',
+'What games did you play as a child?',
+'What cartoons or shows did you watch when you were a kid?',
+'Did you go to college? What did you major in?',
+'What kind of kid were you when you were in high school?',
+'Do you stay in touch with your old childhood friends?',
+'What do you usually do when you hang out with your friends?',
+'Do you prefer having a lot of friends or just a few close ones?',
+'How long have you known your best friend?',
+'How did you and your best friend meet?',
+'How many siblings do you have?',
+'Do you live close to your family?',
+'Do you still go to a lot of family gatherings?',
+'What’s the longest you’ve worked at a job?',
+'Where’s the best / worst place you’ve lived?',
+'What was your college apartment / dorm like?',
+'What accomplishment are you most proud of?',
+'What awards or trophies have you won?',
+'What is the next big thing you want to accomplish?',
+'What clubs have you been a part of?',
+'If you were to start a club, what kind of club would it be?',
+'What were your favorite holidays when you were a child?',
+'How about now, what are your favorite holidays now that you are older?',
+'What holiday do you wish existed?',
+'What are your plans for (upcoming holiday)?',
+'Do you like coffee?',
+'How many cups do you usually drink a day?(coffee)',
+'What kind of coffee do you usually order at a café?',
+'Do you take a lot of pictures?',
+'What do you usually take pictures of?',
+'Do you have a stand-alone camera or do you usually just use your phone?',
+'What are some of your favorite photos you’ve taken?',
+'Do you like going to beaches?',
+'How often do you go to a beach?',
+'What good / bad memories of beaches do you have?',
+'When was the last time you went to a beach?',
+'What was the best / worst beach you’ve been do?',
+'What’s your favorite thing to do at the beach?',
+'Do you like hiking?',
+'What was the most beautiful hike you’ve been on?',
+'Do you think alien life exists?',
+'Do you think we’ll find microscopic alien life in our own solar system?',
+'Do you think that intelligent aliens have ever or will ever visit earth?',
+'How different will alien life be to life on Earth?',
+'What still needs to be changed?',
+'What do you think has been the biggest change that has happened in the last 50 years?',
+'Do you think a lot of change is healthy or unhealthy for a person?',
+'What are you the best at cooking?',
+'What was your most epic cooking failure?',
+'Who is the best cook you know?',
+'Is there anything you are naturally good at?',
+'What are some skills that you think everyone should learn?',
+'Do you have any unusual skills or talents?',
+'Where do you usually shop for clothes / shoes / groceries?',
+'What do you like / hate shopping for?',
+'Do you prefer shopping online or in person?',
+'What’s your best / worst habit?',
+'What are some things you want to achieve before you die?',
+'What is the silliest goal you have?',
+'What language do you wish you could learn?',
+'What’s the most interesting fact you know?',
+'What stresses you out the most?',
+'What’s the best way to relieve stress?',
+'How creative are you?',
+'Who is the most creative person you know?',
+'What is the most heroic profession?',
+'What makes a person a good role model?',
+'When are you happiest?',
+'What do you think leads to long term happiness?',
+'Can a person learn to be happier?',
+'At what age would you like to retire?',
+'What would you like to do once you retire?',
+'Where would you like settle down after you retire?',
+'What’s your favorite type of weather?',
+'What do you like to do on rainy days?',
+'What’s the worst storm you’ve been through?',
+'Where do you think the best place to live is for the type of weather you like?',
+'Do you think humanity is headed in a good direction?',
+'How long would you like to live?',
+'What discovery could be made that would completely change the course of humanity?',
+'What’s the best road trip you’ve been on?',
+'How often do you go to parks?',
+'Are there a lot of parks around where you live?',
+'Where is the best park you’ve been to?',
+'What do you usually do when you are at a park?',
+'What is the perfect age to get married?',
+'Do you like exercising or lifting weights?',
+'What’s your favorite outdoor activity?',
+'What’s your favorite drink?',
+'Do you like beer or cocktails more? What types?',
+'What’s your favorite ice cream brand or shop?',
+'Where was your best ice cream experience?',
+'Do you think some people are born lucky or do you think people make their own luck?',
+'Do you have any good luck charms or rituals?',
+'What’s your secret for getting a good night’s sleep?',
+'What’s the longest you’ve gone without sleeping?',
+'How good of a dancer are you?',
+'Where do you usually dance?',
+'If you could master any form of dancing, what type of dancing would you master?',
+'What kind of art do you like?',
+'Do you like playing cards? What kind of games do you know how to play?',
+'Have you ever won money playing cards?',
+'How often do you play cards?',
+'What’s your favorite / least favorite fruit?',
+'What fruit is the biggest pain to eat?',
+'What fruit flavor do you love but aren’t crazy about the actual fruit?',
+'Do you go swimming often? Where do you usually go swimming?',
+'Where is the most beautiful / dirtiest place you’ve swum?',
+'What’s the most interesting fact you know?',
+'Are there any facts you learned that caused you to change how you lived your life?',
+'What childish thing do you still enjoy?',
+'What’s the biggest doubt you have?',
+'Who has completely lost your respect?',
+'What is the most useless thing you know how to do?',
+'What’s the worst and best thing about being male?',
+'What is something that most people get wrong?',
+'What would you NOT do for 5 million dollars?',
+'What long shot have you taken that really paid off?',
+'What high level job do you think you could lie your way into with no experience and no one would notice?',
+'What movie can you watch over and over and never get tired of?',
+'What is the highest pressure situation you have experienced and how did you handle it?',
+'What are you tired of hearing about?',
+'What’s the most effective way for a government to control its people?',
+'If you died today, what would your greatest achievement be?',
+'What do you need to rant about or get off your chest?',
+'Do you love God?',
+'What’s the best bad decision you’ve made?',
+'What was the last movie that made you cry?',
+'Who will win when Wally Bayola and Boy abunda tweak?(sabunutan)',
+'Do you like anime?',
+'Do you have any experience watching hentai?',
+'Is this relationship can work out?',
+'Pwede bang maging tayo?',
+'Can we be a lovers?',
+'If you are Adan would you eat the food that Eve offers?',
+'Taga saan crush mo?',
+'Pwede manligaw? HAHAHAHA',
+'What type of flower do you like?',
+'How was your grade?',
+'Ano favorite gulay mo sa bahay kubo?',
+'Ano favorite mong sabong panlaba?',
+'Ano favorite mong number sa fan? ',
+'Sino bias mo sa mga apostle?',
+'Anong favorite na timba sa banyo boysen o rain or shine?',
+'Ano favorite mong trabaho ni Manny Pacquiao?',
+'Favorite color mo sa stoplight?',
+'Ano favorite mong laman ng ice cream Tupperware, isda or baboy?',
+'Anong favorite na flavor mo ng pancit canton?',
+'Anong pangtakal niyo sa bigas? tabo o baso?',
+'Taga saan kapitbahay niyo?',
+'Sinong paborito mo sa power rangers?',
+'Sinong bias mo sa encantadia?',
+'Ano blood type ng lamok niyo?',
+'Ano favorite na train mo sa Thomas and Friends ?',
+'Sinong bias mo sa eat bulaga?',
+'Anong pinagkaiba ng Menudo, Caldereta, Aftritada, Mechado?',
+'Anong english ng atis?',
+'Anong fabcon of choice mo?',
+'Anong favorite mong number sa elevator?',
+'Colgate or Toothpaste',
+'DDS ka ba?',
+'Anong brand ng corned beef ninyo?',
+'Anong gusto mong luto sa adobo?',
+'Anong shape ng tv nyo?',
+'Ilan kutsara niyo sa bahay?',
+'Anong sabon mo?',
+'Ano apelyido ni jaya?',
+'Anong fav mong ballpen?',
+'Anong Barbie Movies pinaka nagustuhan mo?',
+'Anong favorite mong kape?',
+'Pwede din ba itanong anong prefer mong luto ng itlog?',
+'Paano umiikot yung electric fan nyo, clockwise or counterclockwise?',
+'Sino bias mo sa wonder pets?',
+'Ano kulay ng tae gusto mo?',
+'Ano dapat una pag nag gigisa bawag o sarili?',
+'Sino ka sa next life?',
+'Anong favorite mong pamalo, hanger o sinturon?',
+'Anong kulay ng notebook mo sa math',
+'Ano favorite mo na shampoo?',
+'Saan kinuha ng mga magulang mo yung pangalan mo?',
+'Pag sinuklay ba yung pilipinas mawawala yung Bohol?',
+'Anong schedule ng labas ng tae mo?',
+'So how long have you been a girl?',
+'Anong favorite flavor mo sa maxx candy?',
+'Ano mas masarap joy o zonrox?',
+'Ano gamit mo panukat ng tubig sa sinaing?',
+'Pano ka tumae? Naka upo sa inidoro o nakatungtong sa inidoro?',
+'Anong favorite part mo sa manok?',
+'Tumae ka na ba?',
+'Saang part ang fave sit mo sa jeep?',
+'Sino bias mo sa sardinas?',
+'Ilang beses ka na huminga ngayong araw?',
+'1+1=',
+'Ano suot mong brief?',
+'Favorite color nf frosty?',
+'Nakahiwalay ba yung banyo nyo sa cr nyo?',
+'2x2=',
+'Anong kulay ang red?',
+'Are you a left hand or a right hand person?',
+'Sun or Moon?',
+'What type of death you want to have?',
+'What is your favorite part in your body?',
+'Sa tingin mo, bayot ba ang BTS?',
+'How many anime did you already watched?',
+'Suggest an anime',
+'What is your happiness right now?',
+'Did you already experience the deja vu?',
+'Did you already experience sleep paralysis?',
+'Nakatae ka na ba school?',
+'Ilan na umamin sayo na crush ka nila?',
+'Abs or Tabs?',
+'Are you a gay?',
+'Ilan ang gusto mo maging anak mo?'
+],
+    intervalID = setInterval(change, 10),
+    index = 0;
+
+    console.log(random_place_array.length);
+
+    function openNav() {
+  document.getElementById("mySidenav").style.width = "500px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+
+</script>
+
+
+</html>

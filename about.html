@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html></html>
+    <head>
+        <title>Decision Maker</title>
+        
+
+        <style>
+            #container{
+                height: 100%;
+                width: 100%;
+                border: 0px solid black;
+                
+            }
+            body{
+                background: #d4e6ff;
+            }
+
+            .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 60px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 90px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+.gradient-border {
+  --borderWidth: 20px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+            .contain-word{
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 100px;
+                margin: 0 auto;
+                max-width: 800px;
+                padding: 12px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+                text-align: center;
+                color:#fff;
+                font-family:'Courier New', Courier, monospace;
+                
+                
+
+            }
+
+            .box{
+                
+                margin: auto;
+                margin-top: 100px;
+                height: 600px;
+                width: 90%;
+                position: relative;
+                border: 50px  ;
+                background-color: #86592d;
+                
+
+
+
+
+                /*
+                
+                height: 500px;
+                width: 90%;
+                border: 0px solid black;
+                text-align: center;
+                line-height: 500px;
+                background-color: #86592d;
+                margin: auto;
+                margin-top: 150px;
+                font-size:30px;
+                font-family:'Courier New', Courier, monospace;
+                color: white;*/
+            }
+            .butts {
+
+                margin-top: 100px;
+                display: flex;
+                justify-content: center;
+                
+
+            }
+
+            .button2 {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #da4848;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+            .button2:hover {background-color: #da4848}
+
+            .button2:active {
+                        background-color: #da4848;
+                        box-shadow: 0 5px #666;
+                        transform: translateY(4px);
+            }
+
+            .button {
+            height: 200px;
+            width: 500px;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto;
+            font-size: 40px;
+}
+
+            .button:hover {background-color: #3e8e41}
+
+            .button:active {
+                        background-color: #3e8e41;
+                        box-shadow: 0 5px #666;
+                        transform: translateY(4px);
+            }
+            
+            h1{
+  font-family:'Courier New', Courier, monospace;
+
+}
+         </style>
+    </head>
+    <body >
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index3.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="developer.html">Developer</a>
+    
+      </div>
+      
+      
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="icon3.png" alt="icon" style="height: 80px; width: 80px;"> </span>
+    <div id="container">
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <img src="org.png" alt="romar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+        </div>
+        <div>
+            <fieldset style="width: 90%; margin: auto;">
+
+                <legend><h1>Frequently Ask Questions:</h1></legend>
+                <h1>What's the use of this Application?<br>
+                <i>-This application is developed to help people and to find random topics 
+                    to fuel up your dry conversations with your significant other and etc. 
+                    By using this application, there's no need for you to go to the internet and find 
+                    some interesting topics to talk about. 
+                </i>
+                </h1>
+                <hr>
+                <h1>How to use this Application?<br>
+                    <i>➡️ First, you need an Internet connection(Wi-Fi, Mobile Data) to download 
+                        this Application for free. <br>
+                        ➡️ Install the application if it is downloaded. <br>
+                        ➡️ Once it is already installed, open the app and just press "Proceed" and you are good to go. <br>
+                        ➡️ The "Start" button function is to begin the ramdomly pick of topics. <br>
+                        ➡️ The "Stop" button function allows you to stop the ramdom picking of topics.
+                    </i>
+                </h1>
+                <hr>
+                <h1>Why topic Application developed?<br>
+                    <i>-Its just my idea, because nung nakikipagusap ako kay crush dati 
+                        walang wala na talaga ko masabe as in, halos natanong ko na lahat 
+                        and then paulit ulit na like "Kumain ka na ba?", "Ano ginagawa mo?", 
+                        minsan nga natanong ko na rin "Ano ulam niyo?" HAHAHAHA <br>
+                        Pero I love you pa rin HAHAHAHA!
+                    </i>
+                </h1>
+
+                
+                
+
+            </fieldset>
+        </div>
+        
+
+        
+    </div>
+
+
+        
+
+    </div>
+
+
+
+</body>
+
+<script>
+ function openNav() {
+  document.getElementById("mySidenav").style.width = "500px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+</script>
+
+
+</html>
